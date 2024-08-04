@@ -1,0 +1,32 @@
+<section id="usaha">
+   <div class="container ">
+      <div class="row">
+         <div class="col-12 col-md-12 col-lg-12 pt-5 pb-3 ">
+            <div class="title-berbagi mb-4">
+               <p class="header-title-berbagi mb-2" >Usaha BUMDes Desa A</p>
+               <p class="desc-title-berbagi">Mari ikut promosikan dan membantu usaha BUMDes untuk meningkatkan ekonomi dan <br> kesejahteraan masyarakat Desa A.</p>
+            </div>
+            <div class="owl-carousel owl-carousel-berbagi owl-theme mt-3">
+               <% usaha.forEach((value, key) => { %>
+                  <div class="item">
+                     <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="static/img/usaha/<%= value.img %>.png" alt="Card image cap">
+                        <div class="card-body">
+                           <label for=""><%= value.title %></label>
+                           <p style="font-weight: normal;"><%= value.desc %></p>
+                           <button class="btn btn-success w-100 mb-3" >Baca Selengkapnya</button>
+                        </div>
+                     </div>
+                  </div>
+               <% }); %>  
+            </div>
+         </div>
+           <div class="col-12 pb-5 pt-0"">
+            <center>
+               <button class="btn btn-success" >Lihat Selengkapnya</button>
+            </center> 
+         </div>
+         
+      </div>
+   </div>
+</section>

@@ -1,0 +1,392 @@
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title><%= title %></title>
+     <link rel="icon" href="/static/img/icon.ico  " type="image/x-icon">
+     <!-- Google Font: Source Sans Pro -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+     <!-- Font Awesome Icons -->
+     <link rel="stylesheet" href="/static/template/plugins/fontawesome-free/css/all.min.css">
+     <!-- IonIcons -->
+     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+     <!-- Theme style -->
+     <link rel="stylesheet" href="/static/template/distr/css/adminlte.css">
+     <!-- jquery confirm -->
+     <link rel="stylesheet" href="/static/template/plugins/jquery-confirm/jquery-confirm.min.css">
+     <!-- Select2 -->
+     <link rel="stylesheet" href="/static/template/plugins/select2/css/select2.min.css">
+     <!-- Carousel -->
+     <link rel="stylesheet" href="/static/template/plugins/carousel/dist/assets/owl.carousel.min.css">
+     
+     <link rel="stylesheet" href="/static/template/plugins/carousel/dist/assets/owl.theme.default.min.css">
+
+     <link rel="stylesheet" href="/static/template/plugins/carousel/dist/assets/owl.theme.default.min.css">
+
+     <style>
+          body {
+               margin: 0;
+               font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 400;
+               line-height: 1.5;
+               color: rgba(73, 73, 73, 0.836);
+               text-align: left;
+               background-color: #ffffff;
+               background-repeat: no-repeat;
+               background-size: contain;
+           }
+
+          .nav-modif > li > a {
+               font-size: 14px !important;
+               font-weight: 700;
+          }
+
+          #mainNav {
+               padding-top: 1rem;
+               padding-bottom: 1rem;
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: bold;
+               color:rgba(73, 73, 73, 0.836);
+               background-color:  #fff;
+          }
+
+          .btn-modif-frontend-a  {
+               font-size: 13px;
+               
+          }
+
+          .btn-modif-frontend {
+               font-size: 13px;
+               color:rgba(73, 73, 73, 0.836);
+          }
+
+          a {
+               color: rgba(73, 73, 73, 0.836);
+               text-decoration: none;
+               background-color: transparent;
+          }
+
+          .element-main{
+               background-color: transparent ;
+               min-height: 120px;
+          }
+          
+          .main-hero {
+               font-family:"Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+          }
+
+          .main-desc {
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-size: 14px;
+          }
+          .hero1  {
+               position: absolute;
+               right: 0;
+               z-index: 0;
+          }
+          .hero2  {
+               position: absolute;
+               top: 245px;
+               left: 50px;
+               z-index: 0;
+          }
+          .hero {
+               position: absolute;
+               top:110px;
+               left: 145px;
+               z-index: 2;
+          }
+          .hubungi_kami {
+               border: 2px solid rgba(73, 73, 73, 0.836);
+          }
+
+          .card-title-modif {
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+               font-size: 27px;
+          }
+          .get-started-title {
+               background-color: transparent;
+               box-shadow: none;
+          }
+
+          .img1{
+               height: 70%;
+               width: 70% !important;
+          }
+          .info-img{
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+               font-size: 12px;
+          }
+          .card-modif-2 {
+               width: 180px;
+          }
+
+          .title-price{
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+               font-size: 32px;
+          }
+          .info-desc-detail {
+               font-size: 15px;
+          }
+          .card-header-modif{
+               font-size: 17px;
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+          }
+
+          .card-body-price {
+               font-size: 17px;
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+          }
+          
+          .card-header-modif{
+               background-color : #ffae00ff;
+          }
+
+          .kata_meraka{
+               font-size: 32px;
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+          }
+
+          .testimoni-text {
+               font-size: 23px;
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+          }
+          .testimoni-title {
+               font-size: 17px;
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+               font-style: italic;
+          }
+
+          .title-footer {
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: 700;
+               font-size: 18px;
+          }
+
+          .btn-info{
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: normal;
+               font-size: 12px;
+          }
+          .form-control{
+               font-size: 12px;
+          }
+          .login-box, .register-box {
+               width: 400px !important;
+          }
+          .brand-text{
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-weight: normal;
+               font-size: 17px;
+          }
+
+          /* Baznas */
+          .dropdown-item {
+               font-size: 13px !important;
+               color: #6e6e6e !important;
+          }
+
+          .btn-success {
+               color: #fff;
+               background-color: #006400;
+               border-color: #006400;
+               box-shadow: none;
+          }
+
+          #imagebrandheader {
+              height: 35px;
+          }
+
+          .simple-count {
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               background-color: #003A00;
+               min-height: 100px;
+               color:#B1B1B1;
+               
+          }
+
+          .simple-count-number {
+               text-align: center;
+               font-weight: bold;
+          }
+
+          .simple-count-title {
+               text-align: center;
+               font-weight: bold;
+          }
+
+          .title-berbagi{
+               text-align: center;
+          }
+
+          .header-title-berbagi {
+               font-size: 20px;
+          }
+
+          .desc-title-berbagi {
+               font-size: 15px;
+          }
+
+          .btn-yellow {
+               color: #fff;
+               background-color: #FFC107;
+               border-color: #FFC107;
+               box-shadow: none;
+          }
+
+          .card-title{
+               font-family: "Inter",  "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               font-size: 15px;
+               font-weight: bold;
+          }
+
+          .bg-yellow{
+               color: #fff;
+               background-color: #FFC107;
+               border-color: #FFC107;
+               box-shadow: none;
+          }
+
+          .right-navigation-1{
+               display: none;
+          }
+
+          .card-login-register-mustahik{
+               width: 18rem;
+          }
+
+          .card-login-masuk{
+               width: 25rem;
+          }
+
+
+          .card-login-kalkulator-zakat{
+               width: 18rem;
+          }
+
+          .section-footer{
+               font-family: "Inter", "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+               background-color: #003A00;
+               min-height: 100px;
+               color: #B1B1B1;
+               background-image: url("/static/img/footer-img.png");
+               background-repeat: no-repeat;
+               background-size: cover;
+          }
+
+          .title-footer{
+               color:#003A00;
+          }
+
+          .list-text-footer{
+               list-style-type: none;
+               color: #003A00;
+               line-height: 21px;
+               cursor: pointer;
+               font-weight: 500;
+          }
+                    
+          .box {
+               background-color: #003A00;
+               background-position: 0 0, 100% 0;
+               background-repeat: no-repeat;
+               background-size: 50% 100%;
+               height: 5px;
+               width: 59px;
+               border-radius: 10px;
+          }
+
+          .foot {
+               background-color: #003A00;
+               height: 53px;
+               color: white;
+               font-weight: 500;
+          }
+
+          .dropdown-item:hover, .dropdown-item:focus {
+               color: #16181b;
+               text-decoration: none;
+               background-color: #e2e2e3;
+          }
+
+          .tag{
+               background: #f4772e !important;
+               color:white;
+          }
+          
+          .tag-green{
+               background: #006400 !important;
+               color:white;
+          }
+
+          .nav-link {
+               color: #B1B1B1;
+          }
+
+          a:hover {
+               color: #006400;
+               text-decoration: none;
+          }
+          
+          @media only screen and (max-width: 576px) {
+
+                .card-login-kalkulator-zakat{
+                    width: 25rem;
+               }
+               
+               .card-login-register-mustahik{
+                    width: 25rem;
+               }
+
+               .simple-count-number {
+                    font-size: 12px;
+               }
+
+               .simple-count-title {
+                    font-size: 11px;
+               }
+          }
+
+          @media (min-width:577px) and (max-width:991px) {
+               
+               .simple-count-number {
+                    font-size: 16px;
+               }
+
+                .simple-count-title {
+                    font-size: 13px;
+               }
+           }
+          
+           @media only screen and (min-width: 992px) {
+              
+               .simple-count-number {
+                    font-size: 23px;
+               }
+
+               .simple-count-title {
+                    font-size: 18px;
+               }
+           }
+
+          @media (min-width:992px) and (max-width:1199px) {
+               .left-navigation-1 {
+                    display: none !important;
+               }
+               .right-navigation-1 {
+                    display: list-item !important;
+               }
+          }
+     </style>
+
+
+</head>

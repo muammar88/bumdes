@@ -125,6 +125,16 @@ dist
 # yarn v2
 .yarn/cache
 .yarn/unplugged
+
+# bumdes ignore
+public/img/cerita_aksi
+public/img/slide
+public/img/usaha
+public/img/logo.png
+public/img/logo-backend.png
+public/img/icon.ico
+
+
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*

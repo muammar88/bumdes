@@ -1,0 +1,59 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "bumdes",
+    "host": "localhost",
+    "dialect": "mysql",
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci",
+        "connectTimeout": 60000
+      }
+    },
+    "dialectOptions": {
+      "useUTC": true,
+      "connectTimeout": 60000
+    },
+    "timezone": "+07:00"
+  },
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "bumdes",
+    "host": "localhost",
+    "dialect": "mysql",
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci",
+        "connectTimeout": 60000
+      }
+    },
+    "dialectOptions": {
+      "useUTC": true,
+      "connectTimeout": 60000
+    },
+    "timezone": "+07:00"
+  },
+  "production": {
+    "username": "root",
+    "password": "",
+    "database": "bumdes",
+    "host": "localhost",
+    "dialect": "mysql",
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci",
+        "connectTimeout": 60000
+      }
+    },
+    "dialectOptions": {
+      "useUTC": true,
+      "connectTimeout": 60000
+    },
+    "timezone": "+07:00"
+  }
+}

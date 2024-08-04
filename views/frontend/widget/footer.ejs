@@ -1,0 +1,147 @@
+
+<script src="/static/template/plugins/jquery/jquery.min.js"></script>
+<!-- bootstrap -->
+<script src="/static/template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="/static/template/distr/js/adminlte.js"></script>
+<!-- OPTIONAL SCRIPTS -->
+<script src="/static/template/plugins/chart.js/Chart.min.js"></script>
+<!-- Dashboard 3 -->
+<script src="/static/template/distr/js/pages/dashboard3.js"></script>
+<!-- jquery confirm -->
+<script src="/static/template/plugins/jquery-confirm/jquery-confirm.min.js"></script> 
+<!-- My Frame -->
+<script src="/static/app/myframes/myframe.js"></script>
+<!-- Ckeditor -->
+<script src="/static/template/plugins/ckeditor/ckeditor.js"></script>
+<!-- Select2 -->
+<script src="/static/template/plugins/select2/js/select2.min.js"></script>
+<script src="/static/template/plugins/carousel/src/js/owl.carousel.js" data-cover></script>
+<script src="/static/template/plugins/jquery_currency/jquery_currency.js"></script>
+<script>
+   $('.owl-carousel-berbagi').owlCarousel({
+        loop:false,
+        items:2,
+        margin:10,
+        dots:true,
+        stagePadding: 50,
+        responsive:{
+            0:{
+                items:3
+            },
+            600:{
+                items:3
+            },
+            700:{
+                items:3
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('.owl-carousel-sedekah').owlCarousel({
+        loop:false,
+        items:2,
+        margin:10,
+        dots:true,
+        stagePadding: 50,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('.owl-carousel-partner').owlCarousel({
+        loop:false,
+        margin:10,
+        nav:true,
+        stagePadding: 10,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    })
+
+    $(document).on( "keyup", ".currency", function(e){
+        var e = window.event || e;
+        var keyUnicode = e.charCode || e.keyCode;
+            if (e !== undefined) {
+                switch (keyUnicode) {
+                    case 16: break;
+                    case 27: this.value = ''; break;
+                    case 35: break;
+                    case 36: break;
+                    case 37: break;
+                    case 38: break;
+                    case 39: break;
+                    case 40: break;
+                    case 78: break;
+                    case 110: break;
+                    case 190: break;
+                    default: $(this).formatCurrency({ colorize: true, negativeFormat: '-%s%n', roundToDecimalPlace: -1, eventOnDecimalsEntered: true });
+                }
+            }
+    } );
+
+    $( document ).ready(function() {
+        var baseUrl = window.location.origin;
+            $("#nav_beranda").attr("href",baseUrl + "/#beranda");
+            $("#nav_profil_bumdes").attr("href",baseUrl + "/Profil");      
+            $("#nav_usaha").attr("href",baseUrl + "/#usaha");
+            $("#nav_cerita_kami").attr("href",baseUrl + "/#cerita_kami");
+            $("#nav_kontak").attr("href",baseUrl + "/Kontak");
+    });
+
+    function login(e) {
+        e.preventDefault();
+        const username = $('#username').val();
+        const password = $('#password').val();
+        var error = false;
+        var message = "";
+        if (username == '') {
+            error = true;
+            message += "<li>Untuk Melakukan Login, Username Tidak Boleh Kosong.</li>";
+        }
+        if (password == '') {
+            error = true;
+            message += "<li>Untuk Melakukan Login, Password Tidak Boleh Kosong.</li>";
+        }
+        if (error == true) {
+            frown_alert(`<ul class="pl-3">${message}</ul>`);
+            return false;
+        } else {
+            ajax_default(
+                {
+                    url: "Login/process_login",
+                    method: "post",
+                    form: true,
+                },
+                function (e, xhr) {
+                    smile_alert('Login Berhasil Dilakukan');
+                    var urlr = base_url + "/Backend?token=" + e.access_token ;
+                    window.location.href = urlr ;
+                },
+                function (status, errMsg) {
+                    frown_alert(errMsg.error_msg);
+                }
+            );
+        }
+    }
+</script>
+

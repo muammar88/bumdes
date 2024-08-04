@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('widget/header', {title : 'Registrasi Area | Baitul Mal | Kabupaten Bener Meriah'}) %>
+      <body >
+         <%- include('widget/navbar') %>
+            <div class="container">
+               <div class="row py-5">
+                  <div class="col-12 mt-0 mx-auto text-left">
+                     <div class="card mx-auto mb-0 card-login-masuk">
+                        <div class="card-header py-3 text-center">
+                           <h5 class="card-title" style="float: none !important;">DAFTAR AKUN</h5>
+                        </div>
+                        <div class="card-body  ">
+                           <div class="mt-0">
+                              <div class="row">
+                                 <div class="col-12 my-3 text-left">
+                                    <label for="name" class="form-label mt-0">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap">
+                                 </div>
+                                 <div class="col-12 my-3 text-left">
+                                    <label for="email" class="form-label mt-0">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                 </div>
+                                 <div class="col-12 my-3 text-left">
+                                    <label for="no_whatsapp" class="form-label mt-0">Nomor Whatsapp</label>
+                                    <input type="text" class="form-control" id="no_whatsapp" name="no_whatsapp" placeholder="Nomor Whatsapp">
+                                 </div>
+                                 <div class="col-12 my-3 text-left">
+                                    <label for="password" class="form-label mt-0">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                 </div>
+                                 <div class="col-12 my-3 text-left">
+                                    <label for="konf_password" class="form-label mt-0">Konfirmasi Password</label>
+                                    <input type="password" class="form-control" id="konf_password" name="konf_password" placeholder="Konfirmasi Password">
+                                 </div>
+                                 <div class="col-12 my-3">
+                                    <button type="button" class="btn btn-success mt-4 w-100">Daftar</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <%- include('section/section_footer') %>
+      </body>
+   <%- include('widget/footer') %>
+</html>

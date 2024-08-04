@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <%- include('widget/header', {title : 'Login Area | Baitul Mal | Kabupaten Bener Meriah'}) %>
+      <body >
+         <%- include('widget/navbar') %>
+            <div class="container my-5 py-5">
+               <div class="row py-5">
+                  <div class="col-12 mt-0 mx-auto text-left">
+                     <div class="card mx-auto mb-0 card-login-masuk">
+                        <div class="card-header py-4 text-center">
+                           <h5 class="card-title" style="float: none !important;">AREA LOGIN</h5>
+                        </div>
+                        <div class="card-body">
+                           <div class="mt-0">
+                              <form enctype="multipart/form-data" method="post" onsubmit="login(event)" id="form">
+                                 <div class="row">
+                                    <div class="col-12 my-3 text-left">
+                                       <label for="username" class="form-label mt-0">Username</label>
+                                       <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                    </div>
+                                    <div class="col-12 text-left">
+                                       <label for="password" class="form-label mt-0">Password</label>
+                                       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                    </div>
+                                    <div class="col-12 my-3">
+                                       <button type="submit" class="btn btn-success mt-4 w-100"><b>Login</b></button>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         <%- include('section/section_footer') %>
+      </body>
+   <%- include('widget/footer') %>
+</html>

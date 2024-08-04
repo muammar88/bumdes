@@ -1,4 +1,5 @@
 const express = require("express");
+const sharp = require("sharp");
 const { verify } = require("jsonwebtoken");
 const path = require("path");
 const { body, validationResult } = require("express-validator");
@@ -36,35 +37,31 @@ const file_filter = (req, file, callback) => {
   }
 };
 
-const checkDimensions = (req, res, next) => {
-  if (!req.file) {
-    return res.status(400).send("No file uploaded.");
-  }
+// const checkDimensions = (req, res, next) => {
+//   if (!req.file) {
+//     return res.status(400).send("No file uploaded.");
+//   }
+//   sharp(req.file.buffer)
+//     .metadata()
+//     .then((metadata) => {
+//       const { width, height } = metadata;
+//       const maxWidth = 1024;
+//       const maxHeight = 768;
+//       if (width > maxWidth || height > maxHeight) {
+//         return res
+//           .status(400)
+//           .send(
+//             `Image dimensions should be at most ${maxWidth}x${maxHeight} pixels.`
+//           );
+//       }
 
-  sharp(req.file.buffer)
-    .metadata()
-    .then((metadata) => {
-      const { width, height } = metadata;
-
-      // Ganti nilai ini dengan dimensi yang Anda inginkan
-      const maxWidth = 1024;
-      const maxHeight = 768;
-
-      if (width > maxWidth || height > maxHeight) {
-        return res
-          .status(400)
-          .send(
-            `Image dimensions should be at most ${maxWidth}x${maxHeight} pixels.`
-          );
-      }
-
-      next();
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error processing image.");
-    });
-};
+//       next();
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.status(500).send("Error processing image.");
+//     });
+// };
 
 // ROUTER
 const router = express.Router();
@@ -82,12 +79,18 @@ router.post(
     { name: "logo", maxCount: 1 },
     { name: "logo_backend", maxCount: 1 },
   ]),
-  body("name").notEmpty().withMessage("Judul Slide Tidak Boleh Kosong").trim(),
-  body("name").notEmpty().withMessage("Judul Slide Tidak Boleh Kosong").trim(),
-  body("name").notEmpty().withMessage("Judul Slide Tidak Boleh Kosong").trim(),
-  body("name").notEmpty().withMessage("Judul Slide Tidak Boleh Kosong").trim(),
-  body("name").notEmpty().withMessage("Judul Slide Tidak Boleh Kosong").trim(),
-
+  body("nama_desa")
+    .notEmpty()
+    .withMessage("Nama Desa Tidak Boleh Kosong")
+    .trim(),
+  body("alamat_kantor_bumdes")
+    .notEmpty()
+    .withMessage("Alamat Kantor BUMDes Tidak Boleh Kosong")
+    .trim(),
+  body("telpon").trim(),
+  body("nomor_whatsapp").trim(),
+  body("link_facebook").trim(),
+  body("link_youtube").trim(),
   controllers.update_pengaturan
 );
 

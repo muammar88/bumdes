@@ -126,12 +126,12 @@ function updatePengaturan(e) {
       form: true,
     },
     function (e, xhr) {
-      // smile_alert(e.error_msg);
-      // pengaturan();
-      // $(".form-control").prop("disabled", true);
-      // $(".submitButtonArea").html(
-      //   `<button type="button" class="btn btn-default" onclick="activeEditPengaturan()">Edit Pengaturan</button>`
-      // );
+      smile_alert(e.error_msg);
+      pengaturan();
+      $(".form-control").prop("disabled", true);
+      $(".submitButtonArea").html(
+        `<button type="button" class="btn btn-default" onclick="activeEditPengaturan()">Edit Pengaturan</button>`
+      );
     },
     function (status, errMsg) {
       frown_alert(errMsg.error_msg);

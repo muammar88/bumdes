@@ -75,4 +75,6 @@ controllers.Backend_area = async (req, res) => {
   });
 };
 
+controllers.get_info_profil_admin = async (req, res) => {};
+
 module.exports = controllers;

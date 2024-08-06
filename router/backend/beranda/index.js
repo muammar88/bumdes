@@ -2,8 +2,8 @@ const express = require("express");
 const { verify } = require("jsonwebtoken");
 const path = require("path");
 const { body, validationResult } = require("express-validator");
-const controllers = require("../../../controllers/user/beranda/index");
-const helper = require("../../../helpers/user/beranda/index");
+const controllers = require("../../../controllers/backend/beranda/index");
+// const helper = require("../../../helpers/user/beranda/index");
 
 //------MIDDLEWARE-----//
 const {
@@ -14,11 +14,11 @@ const {
 // ROUTER
 const router = express.Router();
 
-// router.post(
-//   "/Users/Daftar_agen/server_side",
-//   [verify_session],
-//   controllers.server_side
-// );
+router.get(
+  "/Users/Beranda_utama/server_side",
+  [verify_session],
+  controllers.server_side
+);
 
 // router.post(
 //   "/Users/Daftar_agen/delete",

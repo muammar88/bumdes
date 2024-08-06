@@ -17,6 +17,7 @@ const arr_router = [
   {
     folder: "backend",
     list: [
+      "beranda",
       "daftar_cerita_kami",
       "daftar_usaha",
       "daftar_pegawai",
@@ -25,6 +26,8 @@ const arr_router = [
       "status_pegawai",
       "slide",
       "pengaturan",
+      "profil_bumdes",
+      "laporan_pendapatan_desa",
     ],
   },
 ];

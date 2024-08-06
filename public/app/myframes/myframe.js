@@ -417,7 +417,7 @@ let menu = (icon, menu_submenu) => {
 };
 
 let navigationFrame = (i, path, icon, name) => {
-  return `<li class="nav-item mx-0 ml-lg-0 mr-lg-2 px-1 px-lg-0 " data-target="#sliderContent" data-slide-to="${i}">
+  return `<li class="nav-item mx-0 ml-lg-0 mr-lg-2 px-1 px-lg-0 " id="${path}" data-target="#sliderContent" data-slide-to="${i}">
             <a class="nav-link nav-insert ${
               i == 0 ? "active" : ""
             }" data-toggle="tab" href="#${i}" style="border-color: #fff0 #fff0 #fff0;">
@@ -885,3 +885,74 @@ let btnDanger = (param) => {
             <i class="${param.icon} mx-auto" style="font-size: 11px;"></i>
           </button>`;
 };
+
+// var json = JSON.parse(JSONdata);
+// console.log( json['data'] );
+// if (json != undefined) {
+//   realJson = json;
+// }
+
+function my_calendar(input) {
+  var items = [];
+
+  // console.log("___________________input");
+  // console.log(input);
+  // console.log("___________________input");
+  if (input.data != undefined) {
+    for (var x in input.data) {
+      items.push({
+        title: input.data[x].title,
+        start: new Date(
+          input.data[x].y,
+          input.data[x].m - 1,
+          input.data[x].d,
+          20
+        ),
+        color: input.data[x].color,
+        allDay: false,
+      });
+    }
+  }
+
+  // console.log("___________________items");
+  // console.log(items);
+  // console.log("___________________items");
+  // fc-today-button fc-button fc-state-default fc-corner-left fc-corner-right fc-state-disabled
+  $("#external-events .fc-event").each(function () {
+    var eventObject = {
+      title: $.trim($(this).text()),
+    };
+    $(this).data("eventObject", eventObject);
+    $(this).draggable({
+      zIndex: 999,
+      revert: true,
+      revertDuration: 0,
+    });
+  });
+
+  console.log("input.id");
+  console.log(input.id);
+  console.log("input.id");
+
+  $("#" + input.id).fullCalendar({
+    header: {
+      left: "prev,next, today",
+      center: "title",
+      right: "month,basicWeek",
+    },
+    dayName: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"],
+    dayNamesShort: [
+      "Minggu",
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jum'at",
+      "Sabtu",
+    ],
+    timezone: false,
+    editable: false,
+    eventLimit: true,
+    events: items,
+  });
+}

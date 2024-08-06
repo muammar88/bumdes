@@ -10,6 +10,7 @@
 <script src="/static/template/distr/js/pages/dashboard3.js"></script>
 <!-- jquery confirm -->
 <script src="/static/template/plugins/jquery-confirm/jquery-confirm.min.js"></script> 
+<script src="/static/template/plugins/moment/moment.min.js"></script>
 <!-- My Frame -->
 <script src="/static/app/myframes/myframe.js"></script>
 <!-- Ckeditor -->
@@ -20,6 +21,12 @@
 
 <script src="/static/template/plugins/pagination/pagination.min.js"></script>
 <script src="/static/template/plugins/jquery_currency/jquery_currency.js"></script>
+
+<script src="/static/template/plugins/fullcalendar/js/fullcalendar.min.js"></script>
+
+<!-- // src="http://localhost/simkad/assets/material_template/plugins/moment/moment.min.js " -->
+
+<!-- src="http://localhost/simkad/assets/material_template/plugins/fullcalendar/js/fullcalendar.min.js" -->
 
 <script>var kode = '<%= kode %>'; </script>
 <script>var name = '<%= name %>'; </script>
@@ -40,28 +47,33 @@
     $(document).ready(function() {
         menu('<%= default_menu.icon  %>', '<%= default_menu.path  %>' );
     });
-    $(document).on( "keyup", ".currency", function(e){
-            var e = window.event || e;
-            var keyUnicode = e.charCode || e.keyCode;
-                if (e !== undefined) {
-                    switch (keyUnicode) {
-                        case 16: break;
-                        case 27: this.value = ''; break;
-                        case 35: break;
-                        case 36: break;
-                        case 37: break;
-                        case 38: break;
-                        case 39: break;
-                        case 40: break;
-                        case 78: break;
-                        case 110: break;
-                        case 190: break;
-                        default: $(this).formatCurrency({ colorize: true, negativeFormat: '-%s%n', roundToDecimalPlace: -1, eventOnDecimalsEntered: true });
-                    }
-                }
-        } );
 
-   $('.owl-carousel').owlCarousel({
+    $(document).on( "click", "#laporan_pendapatan_bumdes", function(e){
+            $(".fc-today-button").trigger("click");
+    } );
+
+    $(document).on( "keyup", ".currency", function(e){
+        var e = window.event || e;
+        var keyUnicode = e.charCode || e.keyCode;
+            if (e !== undefined) {
+                switch (keyUnicode) {
+                    case 16: break;
+                    case 27: this.value = ''; break;
+                    case 35: break;
+                    case 36: break;
+                    case 37: break;
+                    case 38: break;
+                    case 39: break;
+                    case 40: break;
+                    case 78: break;
+                    case 110: break;
+                    case 190: break;
+                    default: $(this).formatCurrency({ colorize: true, negativeFormat: '-%s%n', roundToDecimalPlace: -1, eventOnDecimalsEntered: true });
+                }
+            }
+    } );
+
+    $('.owl-carousel').owlCarousel({
         loop:false,
         margin:10,
         nav:true,
@@ -95,7 +107,85 @@
                 items:1
             }
         }
-    })
+    });
+
+    function edit_profil_admin(){
+        ajax_default(
+            {
+            url: Urls("Backend/get_info_profil_admin"),
+            method: "get",
+            },
+            function (e, xhr) {
+                $.confirm({
+                    columnClass: "col-5",
+                    title: "Edit Profil Administrator",
+                    type: "green",
+                    theme: "material",
+                    content: form_update_profil(),
+                    closeIcon: false,
+                    buttons: {
+                    tutup: function () {
+                        return true;
+                    },
+                    formSubmit: {
+                        text: "Update Profil Administrator",
+                        btnClass: "btn-primary",
+                        action: function () {
+                        //   ajax_file(
+                        //     {
+                        //       url: Urls("Daftar_usaha/update_usaha"),
+                        //       method: "post",
+                        //       form: true,
+                        //       ckeditor: true,
+                        //       ckeditor_name: "deskripsi",
+                        //     },
+                        //     function (e, xhr) {
+                        //       smile_alert(e.error_msg);
+                        //       daftar_usaha(100, "daftar_usaha", "Daftar_usaha");
+                        //     },
+                        //     function (status, errMsg) {
+                        //       frown_alert(errMsg.error_msg);
+                        //     }
+                        //   );
+                        },
+                    },
+                    },
+                });
+            },
+            function (status, errMsg) {
+            frown_alert(errMsg.error_msg);
+            }
+        );
+    }
+
+    function form_update_profil(JSONData){
+        var json = JSON.parse(JSONData);
+        var fullname = json.fullname;
+        var username = json.username;
+        var form = `<form id="form" class="formName" enctype="multipart/form-data" method="post">
+                        <div class="row px-0 py-3 mx-0">
+                            <div class="col-12"> 
+                                <div class="form-group">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" class="form-control" name="fullname" value="${fullname}" placeholder="Nama Lengkap">
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" name="username" id="username" value="${username}" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" name="password" id="password_pegawai" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Konfirmasi Password</label>
+                                    <input type="password" class="form-control" name="konfirmasi_password" id="konfirmasi_password_pegawai" placeholder="Konfirmasi Password">
+                                </div>
+                            </div>
+                        </div>
+                    </form>`;
+        return form;
+    }
    
 </script>
 

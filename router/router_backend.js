@@ -12,4 +12,12 @@ const router = express.Router();
 
 router.get("/Backend/", [verify_session], controllers.Backend_area);
 
+router.get(
+  "/Backend/get_info_profil_admin",
+  [verify_session],
+  controllers.get_info_profil_admin
+);
+
+//
+
 module.exports = router;
